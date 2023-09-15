@@ -23,15 +23,24 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+
   scales: {
     x: {
       grid: {
         display: true,
+        color: '#292928',
       },
     },
     y: {
+      min: 0,
+      max: 3000,
+      ticks: {
+        // forces step size to be 50 units
+        stepSize: 1000,
+      },
       grid: {
         display: true,
+        color: '#292928',
       },
     },
   },
@@ -78,17 +87,11 @@ const labels = [
 const data = {
   labels,
   datasets: [
-    // {
-    //   label: 'Dataset 1',
-    //   data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-    //   borderColor: 'rgb(255, 99, 132)',
-    //   backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    // },
     {
-      // label: 'Dataset 2',
       data: labels.map(() => faker.number.int({ min: 0, max: 3000 })),
       borderColor: '#E3FFA8',
       borderWidth: 1,
+      pointRadius: 0,
     },
   ],
 };

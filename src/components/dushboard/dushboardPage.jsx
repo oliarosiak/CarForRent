@@ -4,6 +4,7 @@ import {
   MainHeader,
   SecondHeader,
   ChartsBlock,
+  Li,
   Charts,
 } from './dushboardPage.styled';
 
@@ -17,10 +18,16 @@ const Dushboard = () => {
         <SecondHeader>November</SecondHeader>
       </HeaderBlock>
       <ChartsBlock>
-        <Charts>
-          <LineChart />
-        </Charts>
-        <Charts />
+        <Li>
+          <Charts>
+            <LineChart />
+          </Charts>
+        </Li>
+        <Li>
+          <Charts>
+            <LineChart />
+          </Charts>
+        </Li>
       </ChartsBlock>
     </DushboardContainer>
   );

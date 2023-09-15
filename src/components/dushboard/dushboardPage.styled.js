@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 export const DushboardContainer = styled.div`
   width: 0 auto;
   padding: 0 34px;
+  background-color: #050505;
 `;
 
 export const HeaderBlock = styled.div`
@@ -16,6 +17,7 @@ export const HeaderBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #ffffff;
 `;
 
 export const MainHeader = styled.h2`
@@ -33,6 +35,13 @@ export const SecondHeader = styled.h2`
   font-size: 18px;
 `;
 
+export const Li = styled.li`
+  list-style: none;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+`;
+
 export const ChartsBlock = styled.div`
   display: flex;
   justify-content: center;
@@ -44,5 +53,4 @@ export const Charts = styled.div`
   padding: 25px 20px 24px 14px;
   background-color: #0f0f0f;
   border-radius: 12px;
-  margin-right: 20px;
 `;
