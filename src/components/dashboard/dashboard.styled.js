@@ -44,8 +44,10 @@ export const ChartsContainer = styled.div`
 `;
 
 export const ChartsHeader = styled.h2`
-  font-size: 22px;
-  font-weight: 400;
+  /* font-size: 22px; */
+  font-size: ${theme.fontSizes.l};
+  /* font-weight: 400; */
+  font-weight: ${theme.fontWeights.regular};
   line-height: 32px;
   color: #ffffff;
   margin: 0 40px 0 0;
