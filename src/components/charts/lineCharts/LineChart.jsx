@@ -35,7 +35,6 @@ export const options = {
       min: 0,
       max: 3000,
       ticks: {
-        // forces step size to be 50 units
         stepSize: 1000,
       },
       grid: {
@@ -88,7 +87,7 @@ const data = {
   labels,
   datasets: [
     {
-      data: labels.map(() => faker.number.int({ min: 0, max: 3000 })),
+      data: labels.map(() => faker.number.int({ min: 1300, max: 2000 })),
       borderColor: '#E3FFA8',
       borderWidth: 1,
       pointRadius: 0,

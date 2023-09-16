@@ -1,13 +1,13 @@
 import { Container } from './App.styled';
 
 import Header from './header/header';
-import Dushboard from './dushboard/dushboardPage';
+import Dashboard from './dashboard/dashboard';
 
 export const App = () => {
   return (
     <Container>
       <Header />
-      <Dushboard />
+      <Dashboard />
     </Container>
   );
 };
