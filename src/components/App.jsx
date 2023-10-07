@@ -1,13 +1,11 @@
 import { Container } from './App.styled';
 
-import Header from './header/header';
-import Dashboard from './dashboard/dashboard';
+import CarsList from './carsList/CarsList';
 
 export const App = () => {
   return (
     <Container>
-      <Header />
-      <Dashboard />
+      <CarsList />
     </Container>
   );
 };
