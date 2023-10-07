@@ -1,18 +1,49 @@
-const CarItem = () => {
+import {
+  CarBlock,
+  CarImg,
+  HeaderWrapper,
+  ContentWrapper,
+  CarButton,
+} from './CarItem.styled';
+
+const CarItem = ({ carData }) => {
+  const {
+    img,
+    make,
+    year,
+    rentalPrice,
+    model,
+    rentalCompany,
+    type,
+    mileage,
+    address,
+  } = carData;
+
+  const adress = address.split(',');
+  const city = adress[1];
+  const country = adress[2];
+
+  console.log(carData);
+
   return (
-    <div>
-      <img src="" alt="car"></img>
-      <div>
-        <h2>Hyundai, 2007</h2>
-        <p>$25</p>
-      </div>
-      <div>
-        <span>Zaporizhzhia</span> | <span>Ukraine</span> |{' '}
-        <span>Economy Car Rentals</span> | <span>SUV</span> |{' '}
-        <span>Tucson</span> | <span>9598</span> | <span>Apple CarPlay</span>
-      </div>
-      <button>Learn more</button>
-    </div>
+    <CarBlock>
+      <CarImg src={img} alt="car" />
+      <HeaderWrapper>
+        <h2>
+          {make} <span>{model}</span>, {year}
+        </h2>
+        <p>{rentalPrice}</p>
+      </HeaderWrapper>
+      <ContentWrapper>
+        <span>
+          {city} | {country} | {rentalCompany}
+        </span>
+        <span>
+          {type} | {make} | {mileage} | Apple CarPlay
+        </span>
+      </ContentWrapper>
+      <CarButton>Learn more</CarButton>
+    </CarBlock>
   );
 };
 
