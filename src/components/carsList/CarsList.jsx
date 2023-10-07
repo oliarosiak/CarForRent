@@ -1,12 +1,15 @@
 import CarItem from 'components/carItem/CarItem';
 
-const CarsList = () => {
+import { CarsListWrapper } from './CarsList.styled';
+
+const CarsList = ({ cars }) => {
+  console.log('cars', cars);
   return (
-    <ul>
-      <li>
-        <CarItem />
-      </li>
-    </ul>
+    <CarsListWrapper>
+      {cars.map(car => (
+        <CarItem key={car.id} carData={car} />
+      ))}
+    </CarsListWrapper>
   );
 };
 
