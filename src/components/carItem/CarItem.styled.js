@@ -1,8 +1,22 @@
 import styled from '@emotion/styled';
 
 export const CarBlock = styled.li`
+  position: relative;
   flex-basis: calc((100% - 3 * 29px) / 4);
   margin-bottom: 50px;
+`;
+
+export const FavoriteBtn = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 0;
+  border: none;
+  background: transparent;
+`;
+export const FavoriteBtnImg = styled.img`
+  width: 18px;
+  height: 18px;
 `;
 
 export const CarImg = styled.img`
@@ -11,17 +25,17 @@ export const CarImg = styled.img`
   object-fit: cover;
   overflow: hidden;
   margin-bottom: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 2.5%,
+    rgba(18, 20, 23, 0) 41.07%
+  );
 `;
 
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-
-  /* font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #121417; */
 
   & > h2 {
     font-weight: 500;
