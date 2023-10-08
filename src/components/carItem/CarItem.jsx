@@ -1,12 +1,29 @@
+import { useState } from 'react';
+import Modal from 'components/modal/Modal';
 import {
   CarBlock,
+  FavoriteBtn,
+  FavoriteBtnImg,
   CarImg,
   HeaderWrapper,
   ContentWrapper,
   CarButton,
 } from './CarItem.styled';
+import heartPic from '../../images/heart.svg';
+import heartFavorite from '../../images/heart-favorite.svg';
 
 const CarItem = ({ carData }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [favorite, setFavorite] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(showModal => !showModal);
+  };
+
+  const toggleFavorite = () => {
+    setFavorite(favorite => !favorite);
+  };
+
   const {
     img,
     make,
@@ -23,11 +40,14 @@ const CarItem = ({ carData }) => {
   const city = adress[1];
   const country = adress[2];
 
-  console.log(carData);
+  const favPic = favorite ? heartFavorite : heartPic;
 
   return (
     <CarBlock>
-      <CarImg src={img} alt="car" />
+      <FavoriteBtn onClick={toggleFavorite}>
+        <FavoriteBtnImg src={favPic} alt="add to favorite" />
+      </FavoriteBtn>
+      <CarImg src={img} alt="car" fill="none" />
       <HeaderWrapper>
         <h2>
           {make} <span>{model}</span>, {year}
@@ -42,7 +62,9 @@ const CarItem = ({ carData }) => {
           {type} | {make} | {mileage} | Apple CarPlay
         </span>
       </ContentWrapper>
-      <CarButton>Learn more</CarButton>
+      <CarButton onClick={toggleModal}>Learn more</CarButton>
+
+      {showModal && <Modal onCloseModal={toggleModal} info={carData} />}
     </CarBlock>
   );
 };
