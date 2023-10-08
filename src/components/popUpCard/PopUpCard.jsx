@@ -1,26 +1,81 @@
-const PopUpCard = () => {
+import {
+  CarImg,
+  Wrapper,
+  Header,
+  Description,
+  Title,
+  Text,
+  RentalInfo,
+  RentalText,
+  CallBtn,
+} from './PopUpCard.styled';
+
+const PopUpCard = ({ characteristics }) => {
+  const {
+    id,
+    img,
+    make,
+    year,
+    description,
+    engineSize,
+    rentalPrice,
+    accessories,
+    functionalities,
+    fuelConsumption,
+    model,
+    rentalConditions,
+    type,
+    mileage,
+    address,
+  } = characteristics;
+
+  const addressArr = address.split(',');
+  const rental = rentalConditions.split('\n');
+  const age = rental[0].split(':');
+  const carAccessories = accessories.join(' | ');
+  const carFunctionalities = functionalities.join(' | ');
+
   return (
     <>
-      <img src="" alt="car" />
-      <h2>Buick Enclave, 2008</h2>
-      <span>Kiev | Ukraine | Id: 9582 | Year: 2008 | Type: Suv</span>
-      <span>Fuel Consumption: 10.5 | Engine Size: 3.6L V6</span>
-      <p>
-        The Buick Enclave is a stylish and spacious SUV known for its
-        comfortable ride and luxurious features.
-      </p>
-      <h3>Accessories and functionalities:</h3>
-      <span>Leather seats | Panoramic sunroof | Power liftgate</span>
-      <span>Premium audio system | Remote start | Blind-spot monitoring</span>
-      <h3>Rental Conditions: </h3>
-      <div>
-        <p>Minimum age : 25</p>
-        <p>Valid driver’s license</p>
-        <p>Security deposite required </p>
-        <p>Mileage: 5,858</p>
-        <p>Price: 40$</p>
-      </div>
-      <button>Rental car</button>
+      <CarImg src={img} alt="car" />
+      <Wrapper>
+        <Header>
+          {make} <span>{model}</span>, {year}
+        </Header>
+        <Text>
+          {addressArr[1]} | {addressArr[2]} | Id: {id} | Year: {year} | Type:{' '}
+          {type}
+        </Text>
+        <Text>
+          Fuel Consumption: {fuelConsumption} | Engine Size: {engineSize}
+        </Text>
+        <Description>{description}</Description>
+      </Wrapper>
+      <Wrapper>
+        <Title>Accessories and functionalities:</Title>
+        <Text>{carAccessories}</Text>
+        <Text>{carFunctionalities}</Text>
+      </Wrapper>
+      <Wrapper>
+        <Title>Rental Conditions:</Title>
+
+        <RentalInfo>
+          <RentalText>
+            Minimum age : <span>{age[1]}</span>
+          </RentalText>
+          <RentalText>{rental[1]}</RentalText>
+        </RentalInfo>
+        <RentalInfo>
+          <RentalText>{rental[2]}</RentalText>
+          <RentalText>
+            Mileage: <span>{mileage.toLocaleString('en-IN')}</span>
+          </RentalText>
+          <RentalText>
+            Price: <span>{rentalPrice}</span>
+          </RentalText>
+        </RentalInfo>
+      </Wrapper>
+      <CallBtn href="tel:+380730000000">Rental car</CallBtn>
     </>
   );
 };
