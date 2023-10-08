@@ -2,8 +2,7 @@ import CarItem from 'components/carItem/CarItem';
 
 import { CarsListWrapper } from './CarsList.styled';
 
-const CarsList = ({ cars }) => {
-  console.log('cars', cars);
+const CarsList = ({ cars }) => { 
   return (
     <CarsListWrapper>
       {cars.map(car => (

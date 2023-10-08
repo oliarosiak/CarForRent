@@ -38,7 +38,7 @@ const Modal = ({ onCloseModal, info }) => {
         <CloseButton onClick={() => onCloseModal()}>
           <CloseButtonImg src={closeButton} alt="close button" />
         </CloseButton>
-        <PopUpCard />
+        <PopUpCard characteristics={info} />
       </CarInfoCard>
     </Overlay>,
     modalRoot

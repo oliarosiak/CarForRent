@@ -15,6 +15,7 @@ export const Overlay = styled.div`
 
 export const CarInfoCard = styled.div`
   position: relative;
+  box-sizing: border-box;
   width: 541px;
   padding: 40px;
   background-color: #ffffff;

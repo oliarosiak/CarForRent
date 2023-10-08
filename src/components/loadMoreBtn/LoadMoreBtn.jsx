@@ -1,6 +1,5 @@
 import { Button } from './LoadMoreBtn.styled';
 const LoadMoreBtn = ({ handler, visible }) => {
-  console.log(visible);
   return (
     <>
       {visible ? (
