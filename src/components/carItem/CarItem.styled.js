@@ -72,26 +72,18 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const CarButton = styled.button`
+export const LearnMoreBtn = styled.button`
   width: 274px;
   height: 44px;
   padding: 12px auto;
-  border-color: transparent;
+  border: none;
+  outline: none;
   border-radius: 12px;
   background-color: #3470ff;
+  cursor: pointer;
 
   font-weight: 600;
   font-size: 14px;
   line-height: 1.43;
   color: #ffffff;
 `;
-
-/**
- * 
-      
-    
-      
-        
-     
-      <button>Learn more</button>
- */

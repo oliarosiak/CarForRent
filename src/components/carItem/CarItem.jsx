@@ -7,7 +7,7 @@ import {
   CarImg,
   HeaderWrapper,
   ContentWrapper,
-  CarButton,
+  LearnMoreBtn,
 } from './CarItem.styled';
 import heartPic from '../../images/heart.svg';
 import heartFavorite from '../../images/heart-favorite.svg';
@@ -25,6 +25,7 @@ const CarItem = ({ carData }) => {
   };
 
   const {
+    id,
     img,
     make,
     year,
@@ -32,14 +33,10 @@ const CarItem = ({ carData }) => {
     model,
     rentalCompany,
     type,
-    mileage,
     address,
   } = carData;
 
-  const adress = address.split(',');
-  const city = adress[1];
-  const country = adress[2];
-
+  const addressArr = address.split(',');
   const favPic = favorite ? heartFavorite : heartPic;
 
   return (
@@ -56,13 +53,13 @@ const CarItem = ({ carData }) => {
       </HeaderWrapper>
       <ContentWrapper>
         <span>
-          {city} | {country} | {rentalCompany}
+          {addressArr[1]} | {addressArr[2]} | {rentalCompany}
         </span>
         <span>
-          {type} | {make} | {mileage} | Apple CarPlay
+          {type} | {make} | {id} | Apple CarPlay
         </span>
       </ContentWrapper>
-      <CarButton onClick={toggleModal}>Learn more</CarButton>
+      <LearnMoreBtn onClick={toggleModal}>Learn more</LearnMoreBtn>
 
       {showModal && <Modal onCloseModal={toggleModal} info={carData} />}
     </CarBlock>
