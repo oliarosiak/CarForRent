@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[781],{919:function(e,r,t){t.r(r),t.d(r,{default:function(){return n}});var a=t.p+"static/media/rent-a-car.df164fd96d77ca0b8206.jpg",c=t(184),n=function(){return(0,c.jsxs)("div",{children:[(0,c.jsx)("h1",{children:" Car For Rent"}),(0,c.jsx)("img",{src:a,alt:"cover car"})]})}}}]);
+//# sourceMappingURL=781.439731a5.chunk.js.map
