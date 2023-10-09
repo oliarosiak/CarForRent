@@ -1,6 +1,7 @@
 import { carsAPI } from '../api/carsAPI';
 import { useState, useEffect } from 'react';
 
+import FilterForm from 'components/filterForm/FilterForm';
 import CarsList from 'components/carsList/CarsList';
 import LoadMoreBtn from 'components/loadMoreBtn/LoadMoreBtn';
 
@@ -30,6 +31,7 @@ const CatalogPage = () => {
 
   return (
     <div>
+      <FilterForm />
       <CarsList cars={cars} />
       <LoadMoreBtn handler={loadMoreBtn} visible={isActiveBtn} />
     </div>
