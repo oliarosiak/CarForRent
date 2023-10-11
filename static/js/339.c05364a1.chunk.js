@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[339],{339:function(e,t,a){a.r(t);var r=a(439),c=a(791),s=a(467),u=a(184);t.default=function(){var e=(0,c.useState)([]),t=(0,r.Z)(e,2),a=t[0],n=t[1];return(0,c.useEffect)((function(){var e=JSON.parse(localStorage.getItem("fav"))||[];n(e)}),[]),(0,u.jsx)("div",{children:(0,u.jsx)(s.Z,{cars:a})})}}}]);
+//# sourceMappingURL=339.c05364a1.chunk.js.map
