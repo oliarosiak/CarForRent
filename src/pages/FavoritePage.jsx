@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react';
+import CarsList from 'components/carsList/CarsList';
+
 const FavoritePage = () => {
+  const [favoriteCarList, setFavoriteCarList] = useState([]);
+
+  useEffect(() => {
+    const favList = JSON.parse(localStorage.getItem('fav')) || [];  
+    setFavoriteCarList(favList);
+  }, []);
+
   return (
     <div>
-      <h1> Car For Rent</h1>
+      <CarsList cars={favoriteCarList} />
     </div>
   );
 };
