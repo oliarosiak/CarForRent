@@ -33,7 +33,7 @@ const carsBrands = [
   'Land',
 ];
 
-const FilterForm = ({ onSubmit }) => {
+const FilterForm = ({ onSubmit, carPriceList, min, max }) => {
   const submitHeandler = event => {
     event.preventDefault();
     onSubmit(event.target);
@@ -44,7 +44,7 @@ const FilterForm = ({ onSubmit }) => {
       <FormEl onSubmit={submitHeandler}>
         <FormSelectLabel htmlFor="car-brand">
           Car brand
-          <FormSelect id="car-brand" name="brand">
+          <FormSelect id="car-brand" name="brand" required>
             {carsBrands.map(brand => (
               <option key={brand} value={brand}>
                 {brand}
@@ -54,19 +54,34 @@ const FilterForm = ({ onSubmit }) => {
         </FormSelectLabel>
         <FormSelectLabel htmlFor="price-hour">
           Price/ 1 hour
-          <FormSelect id="price-hour" name="price">
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="60">60</option>
-            <option value="70">70</option>
+          <FormSelect id="price-hour" name="price" required>
+            {carPriceList.map(price => (
+              <option key={price} value={price}>
+                {price}
+              </option>
+            ))}
           </FormSelect>
         </FormSelectLabel>
         <FormLabel htmlFor="mileage-km">
           {' '}
           Сar mileage / km
           <ScaleWrap>
-            <FormInput id="mileage-km" name="min"></FormInput>
-            <FormInput id="mileage-km" name="max"></FormInput>
+            <FormInput
+              id="mileage-km"
+              name="min"
+              type="number"
+              min={min}
+              max={max}
+              required
+            ></FormInput>
+            <FormInput
+              id="mileage-km"
+              name="max"
+              type="number"
+              min={min}
+              max={max}
+              required
+            ></FormInput>
           </ScaleWrap>
         </FormLabel>
         <FormBtn type="submit">Search</FormBtn>
