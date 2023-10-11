@@ -9,9 +9,34 @@ import {
   FormBtn,
 } from './FilterForm.styled';
 
-const FilterForm = () => {
+const carsBrands = [
+  'Buick',
+  'Volvo',
+  'HUMMER',
+  'Subaru',
+  'Mitsubishi',
+  'Nissan',
+  'Lincoln',
+  'GMC',
+  'Hyundai',
+  'MINI',
+  'Bentley',
+  'Mercedes-Benz',
+  'Aston Martin',
+  'Pontiac',
+  'Lamborghini',
+  'Audi',
+  'BMW',
+  'Chevrolet',
+  'Chrysler',
+  'Kia',
+  'Land',
+];
+
+const FilterForm = ({ onSubmit }) => {
   const submitHeandler = event => {
     event.preventDefault();
+    onSubmit(event.target);
   };
 
   return (
@@ -20,10 +45,11 @@ const FilterForm = () => {
         <FormSelectLabel htmlFor="car-brand">
           Car brand
           <FormSelect id="car-brand" name="brand">
-            <option value="buick">buick</option>
-            <option value="volvo">volvo</option>
-            <option value="hummer">hummer</option>
-            <option value="Subaru">Subaru</option>
+            {carsBrands.map(brand => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
           </FormSelect>
         </FormSelectLabel>
         <FormSelectLabel htmlFor="price-hour">
@@ -39,8 +65,8 @@ const FilterForm = () => {
           {' '}
           Сar mileage / km
           <ScaleWrap>
-            <FormInput id="mileage-km"></FormInput>
-            <FormInput id="mileage-km"></FormInput>
+            <FormInput id="mileage-km" name="min"></FormInput>
+            <FormInput id="mileage-km" name="max"></FormInput>
           </ScaleWrap>
         </FormLabel>
         <FormBtn type="submit">Search</FormBtn>

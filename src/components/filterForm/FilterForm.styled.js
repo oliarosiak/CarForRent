@@ -40,6 +40,11 @@ export const FormSelect = styled.select`
   font-size: 18px;
   line-height: 1.11;
   color: #121417;
+
+  & > option {
+    background-color: #ffffff;
+    color: #12141733;
+  }
 `;
 
 export const FormLabel = styled.label`
