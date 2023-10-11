@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react';
 import CarsList from 'components/carsList/CarsList';
+import EmptyFavorite from 'components/favorite/EmptyFavorite';
 
 const FavoritePage = () => {
   const [favoriteCarList, setFavoriteCarList] = useState([]);
 
   useEffect(() => {
-    const favList = JSON.parse(localStorage.getItem('fav')) || [];  
+    const favList = JSON.parse(localStorage.getItem('fav')) || [];
     setFavoriteCarList(favList);
   }, []);
 
   return (
     <div>
-      <CarsList cars={favoriteCarList} />
+      {favoriteCarList.length === 0 ? (
+        <EmptyFavorite />
+      ) : (
+        <CarsList cars={favoriteCarList} />
+      )}
     </div>
   );
 };
