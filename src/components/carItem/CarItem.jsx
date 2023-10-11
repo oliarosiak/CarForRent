@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'components/modal/Modal';
 import {
   CarBlock,
@@ -14,15 +14,7 @@ import heartFavorite from '../../images/heart-favorite.svg';
 
 const CarItem = ({ carData }) => {
   const [showModal, setShowModal] = useState(false);
-  const [favorite, setFavorite] = useState(false);
-
-  const toggleModal = () => {
-    setShowModal(showModal => !showModal);
-  };
-
-  const toggleFavorite = () => {
-    setFavorite(favorite => !favorite);
-  };
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const {
     id,
@@ -36,8 +28,31 @@ const CarItem = ({ carData }) => {
     address,
   } = carData;
 
+  useEffect(() => {
+    const favList = JSON.parse(localStorage.getItem('fav')) || [];
+    const isFav = favList.some(fav => fav.id === id);
+    setIsFavorite(isFav);
+  }, [id]);
+
+  const toggleModal = () => {
+    setShowModal(showModal => !showModal);
+  };
+
+  const toggleFavorite = () => {
+    if (!isFavorite) {
+      const favList = JSON.parse(localStorage.getItem('fav')) || [];
+      favList.push(carData);
+      localStorage.setItem('fav', JSON.stringify(favList));
+    } else {
+      const favList = JSON.parse(localStorage.getItem('fav')) || [];
+      const removeFromFav = favList.filter(fav => fav.id !== id);
+      localStorage.setItem('fav', JSON.stringify(removeFromFav));
+    }
+    setIsFavorite(favorite => !favorite);
+  };
+
   const addressArr = address.split(',');
-  const favPic = favorite ? heartFavorite : heartPic;
+  const favPic = isFavorite ? heartFavorite : heartPic;
 
   return (
     <CarBlock>
