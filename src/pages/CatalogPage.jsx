@@ -4,19 +4,34 @@ import { useState, useEffect } from 'react';
 import FilterForm from 'components/filterForm/FilterForm';
 import CarsList from 'components/carsList/CarsList';
 import LoadMoreBtn from 'components/loadMoreBtn/LoadMoreBtn';
+import EmptyFilterList from 'components/favorite/EmptyFilterList';
 
 const CARDS_PER_PAGE = 8;
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
+  const [priceList, setPriceList] = useState([]);
+  const [minMil, setMinMil] = useState(null);
+  const [maxMil, setMaxMil] = useState(null);
 
   useEffect(() => {
     carsAPI().then(data => {
+      const prices = data
+        .map(all => Number(all.rentalPrice.slice(1, all.rentalPrice.length)))
+        .sort((a, b) => a - b)
+        .filter((all, index, array) => array.indexOf(all) === index);
+      setPriceList(prices);
+
+      const mileage = data.map(all => all.mileage).sort((a, b) => a - b);
+      const min = mileage[0];
+      const max = mileage[mileage.length - 1];
+
+      setMinMil(min);
+      setMaxMil(max);
+
       setCars(data);
     });
-
-    console.log('first');
   }, []);
 
   const loadMoreBtn = () => {
@@ -39,8 +54,17 @@ const CatalogPage = () => {
 
   return (
     <div>
-      <FilterForm onSubmit={filterHandler} />
-      <CarsList cars={advertsPerPage} />
+      <FilterForm
+        onSubmit={filterHandler}
+        carPriceList={priceList}
+        min={minMil}
+        max={maxMil}
+      />
+      {advertsPerPage.length < 1 ? (
+        <EmptyFilterList />
+      ) : (
+        <CarsList cars={advertsPerPage} />
+      )}      
       {advertsPerPage.length >= perPage ? (
         <LoadMoreBtn handler={loadMoreBtn} visible={true} />
       ) : (
