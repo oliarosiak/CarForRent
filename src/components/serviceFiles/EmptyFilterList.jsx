@@ -1,4 +1,5 @@
-import { Wrapper, Text } from './EmptyFavorite.styled';
+import { Wrapper, Text } from './ServiceFiles.styled';
+
 const EmptyFilterList = () => {
   return (
     <Wrapper>
