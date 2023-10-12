@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import FilterForm from 'components/filterForm/FilterForm';
 import CarsList from 'components/carsList/CarsList';
 import LoadMoreBtn from 'components/loadMoreBtn/LoadMoreBtn';
-import EmptyFilterList from 'components/favorite/EmptyFilterList';
+import EmptyFilterList from 'components/serviceFiles/EmptyFilterList';
 
 const CARDS_PER_PAGE = 8;
 
