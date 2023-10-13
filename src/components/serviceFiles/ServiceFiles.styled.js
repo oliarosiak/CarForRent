@@ -8,13 +8,13 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 12px;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  border-radius: var(--radius-m);
+  background: var(--bcg-gradient);
   text-align: center;
 `;
 
 export const Text = styled.p`
-  color: #ffffff;
+  color: var(--white-color);
   font-weight: 600;
   font-size: 20px;
   line-height: 1.5;
@@ -22,13 +22,14 @@ export const Text = styled.p`
 `;
 
 export const LinkTo = styled(Link)`
-  color: #3470ff;
+  color: var(--main-accent-color);
+  font-family: var(--manrope);
   font-weight: 600;
   font-size: 20px;
   line-height: 1.5;
   margin-top: 25px;
 
   &:hover {
-    color: #0b44cd;
+    color: var(--second-accent-color);
   }
 `;

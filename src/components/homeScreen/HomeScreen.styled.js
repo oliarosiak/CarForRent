@@ -7,22 +7,20 @@ export const Container = styled.div`
 `;
 
 export const CoverImg = styled.img`
-  border-radius: 12px;
+  border-radius: var(--radius-l);
 `;
 
 export const TextWrapper = styled.div`
-  box-sizing: border-box;
   width: 600px;
   padding: 100px 30px;
   text-align: center;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-  border-radius: 12px;
-  color: #3470ff;
+  background: var(--bcg-gradient);
+  border-radius: var(--radius-l);
+  color: var(--main-accent-color);
   font-weight: 600;
 `;
 
 export const Title = styled.h1`
-  font-weight: 700;
   font-size: 30px;
   line-height: 1.5;
   margin-bottom: 20px;
@@ -34,7 +32,7 @@ export const Text = styled.p`
     margin-bottom: 15px;
   }
 
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 20px;
   line-height: 1.5;
 `;

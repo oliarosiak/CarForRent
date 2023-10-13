@@ -8,19 +8,22 @@
   --black-text-color: #121417;
   --text-color: #8a8a89;
   --subtext-color: #12141780;
+  --second-subtext-color: #363535;
   --filter-list-color: #12141733;
 
   --main-accent-color: #3470ff;
   --second-accent-color: #0b44cd;
 
   --filter-bcg-color: #f7f7fb;
+  --modal-text-bcg-color: #f9f9f9;
 
   --pic-cover-gradient: linear-gradient(
     180deg,
     rgba(18, 20, 23, 0.5) 2.5%,
     rgba(18, 20, 23, 0) 41.07%
   );
-
+  --bcg-gradient: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  --modal-overlay-color: #12141780;
   /*Fonts*/
   --manrope: 'Manrope';
   --montserrat: 'Montserrat';
@@ -28,7 +31,8 @@
   /*Borders*/
   --radius-m: 12px;
   --radius-l: 14px;
-  --radius-xl: 35px;
+  --radius-xl: 24px;
+  --radius-xxl: 35px;
   --border-line: 1px solid #8a8a8933;
 }
 
