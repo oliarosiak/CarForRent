@@ -14,6 +14,7 @@ const CatalogPage = () => {
   const [priceList, setPriceList] = useState([]);
   const [minMil, setMinMil] = useState(null);
   const [maxMil, setMaxMil] = useState(null);
+  const [emptyList, setEmptyList] = useState(false);
 
   useEffect(() => {
     carsAPI().then(data => {
@@ -31,6 +32,7 @@ const CatalogPage = () => {
       setMaxMil(max);
 
       setCars(data);
+      setEmptyList(false);
     });
   }, []);
 
@@ -49,6 +51,7 @@ const CatalogPage = () => {
         return onlyPrice === price.value;
       })
       .filter(all => all.mileage >= min.value && all.mileage <= max.value);
+    setEmptyList(true);
     setCars(findBrand);
   };
 
@@ -60,11 +63,8 @@ const CatalogPage = () => {
         min={minMil}
         max={maxMil}
       />
-      {advertsPerPage.length < 1 ? (
-        <EmptyFilterList />
-      ) : (
-        <CarsList cars={advertsPerPage} />
-      )}      
+      {emptyList && <EmptyFilterList />}
+      {advertsPerPage.length > 0 && <CarsList cars={advertsPerPage} />}
       {advertsPerPage.length >= perPage ? (
         <LoadMoreBtn handler={loadMoreBtn} visible={true} />
       ) : (
