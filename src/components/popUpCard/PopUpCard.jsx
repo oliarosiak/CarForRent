@@ -58,7 +58,6 @@ const PopUpCard = ({ characteristics }) => {
       </Wrapper>
       <Wrapper>
         <Title>Rental Conditions:</Title>
-
         <RentalInfo>
           <RentalText>
             Minimum age : <span>{age[1]}</span>

@@ -9,7 +9,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--modal-overlay-color);
   z-index: 1200;
 `;
 
@@ -18,8 +18,8 @@ export const CarInfoCard = styled.div`
   box-sizing: border-box;
   width: 541px;
   padding: 40px;
-  background-color: #ffffff;
-  border-radius: 24px;
+  background-color: var(--white-color);
+  border-radius: var(--radius-xl);
 `;
 
 export const CloseButton = styled.button`
@@ -28,10 +28,11 @@ export const CloseButton = styled.button`
   right: 16px;
   padding: 0;
   border: none;
+  cursor: pointer;
 `;
 
 export const CloseButtonImg = styled.img`
   width: 24px;
   height: 24px;
-  background: #ffffff;
+  background: var(--white-color);
 `;
