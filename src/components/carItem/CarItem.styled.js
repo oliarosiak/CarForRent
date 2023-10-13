@@ -21,15 +21,11 @@ export const FavoriteBtnImg = styled.img`
 
 export const CarImg = styled.img`
   height: 268px;
-  border-radius: 12px;
+  border-radius: var(--radius-l);
   object-fit: cover;
   overflow: hidden;
   margin-bottom: 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 20, 23, 0.5) 2.5%,
-    rgba(18, 20, 23, 0) 41.07%
-  );
+  background: var(--pic-cover-gradient);
 `;
 
 export const HeaderWrapper = styled.div`
@@ -41,9 +37,9 @@ export const HeaderWrapper = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
-    color: #121417;
+    color: var(--black-text-color);
     & > span {
-      color: #3470ff;
+      color: var(--main-accent-color);
     }
   }
 
@@ -51,7 +47,7 @@ export const HeaderWrapper = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
-    color: #121417;
+    color: var(--black-text-color);
   }
 `;
 
@@ -65,7 +61,7 @@ export const ContentWrapper = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
-    color: #12141780;
+    color: var(--subtext-color);
     &:not(:last-child) {
       margin-bottom: 4px;
     }
@@ -75,15 +71,21 @@ export const ContentWrapper = styled.div`
 export const LearnMoreBtn = styled.button`
   width: 274px;
   height: 44px;
-  padding: 12px auto;
+  padding: 12px 0;
   border: none;
   outline: none;
-  border-radius: 12px;
-  background-color: #3470ff;
+  border-radius: var(--radius-m);
+  background-color: var(--main-accent-color);
   cursor: pointer;
 
+  font-family: var(--manrope);
   font-weight: 600;
   font-size: 14px;
   line-height: 1.43;
-  color: #ffffff;
+  color: var(--white-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--second-accent-color);
+  }
 `;

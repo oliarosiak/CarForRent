@@ -5,14 +5,21 @@
   /*Colors*/
   --white-color: #ffffff;
   --white-heart-color: #ffffffcc;
-  --text-color: #121417;
-  --subtext-color: #8a8a89;
+  --black-text-color: #121417;
+  --text-color: #8a8a89;
+  --subtext-color: #12141780;
   --filter-list-color: #12141733;
 
   --main-accent-color: #3470ff;
   --second-accent-color: #0b44cd;
 
   --filter-bcg-color: #f7f7fb;
+
+  --pic-cover-gradient: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 2.5%,
+    rgba(18, 20, 23, 0) 41.07%
+  );
 
   /*Fonts*/
   --manrope: 'Manrope';
@@ -38,8 +45,7 @@ html {
 body {
   min-width: 1440px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Manrope', 'Montserrat',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;

@@ -4,15 +4,20 @@ export const Button = styled.button`
   display: block;
   margin: 0 auto;
   padding: 0;
-  color: #3470ff;
+  color: var(--main-accent-color);
   text-decoration: underline;
   border: none;
   background-color: transparent;
   text-align: center;
   cursor: pointer;
 
+  &:hover,
+  &:focus {
+    color: var(--second-accent-color);
+  }
+
   &:disabled {
-    color: #0b44cd;
+    color: var(--second-accent-color);
     cursor: not-allowed;
   }
 `;
