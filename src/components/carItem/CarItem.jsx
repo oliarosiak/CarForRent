@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Modal from 'components/modal/Modal';
+import { getLocStor, setLocStor } from '../../helpers/handleLocalStorage';
+
 import {
   CarBlock,
   FavoriteBtn,
@@ -29,7 +31,7 @@ const CarItem = ({ carData }) => {
   } = carData;
 
   useEffect(() => {
-    const favList = JSON.parse(localStorage.getItem('fav')) || [];
+    const favList = getLocStor('fav');
     const isFav = favList.some(fav => fav.id === id);
     setIsFavorite(isFav);
   }, [id]);
@@ -39,14 +41,13 @@ const CarItem = ({ carData }) => {
   };
 
   const toggleFavorite = () => {
+    const favList = getLocStor('fav');
     if (!isFavorite) {
-      const favList = JSON.parse(localStorage.getItem('fav')) || [];
       favList.push(carData);
-      localStorage.setItem('fav', JSON.stringify(favList));
+      setLocStor('fav', favList);
     } else {
-      const favList = JSON.parse(localStorage.getItem('fav')) || [];
       const removeFromFav = favList.filter(fav => fav.id !== id);
-      localStorage.setItem('fav', JSON.stringify(removeFromFav));
+      setLocStor('fav', removeFromFav);
     }
     setIsFavorite(favorite => !favorite);
   };
