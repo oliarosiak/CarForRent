@@ -11,8 +11,7 @@ export const Button = styled.button`
   text-align: center;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: var(--second-accent-color);
   }
 

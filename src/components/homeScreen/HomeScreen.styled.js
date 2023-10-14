@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  width: 1184px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

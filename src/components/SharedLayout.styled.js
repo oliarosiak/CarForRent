@@ -5,6 +5,8 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
+  width: 1184px;
+  margin: 0 auto;
   padding: 30px 0;
   margin-bottom: 25px;
   border-radius: 12px;
