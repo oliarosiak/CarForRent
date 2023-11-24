@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Wrapper,
   FormEl,
@@ -33,10 +34,38 @@ const carsBrands = [
   'Land',
 ];
 
-const FilterForm = ({ onSubmit, carPriceList, min, max }) => {
+const FilterForm = ({ onSubmit, carPriceList }) => {
+  const [defaultBrand, setDefaultBrand] = useState('');
+  const [defaultPrice, setDefaultPrice] = useState('');
+  const [defaultMinMile, setDefaultMinMile] = useState('');
+  const [defaultMaxMile, setDefaultMaxMile] = useState('');
+
+  const onBrandHandler = event => {
+    setDefaultBrand(event.target.value);
+  };
+
+  const onPriceHandler = event => {
+    setDefaultPrice(event.target.value);
+  };
+  const onMinMileHandler = event => {
+    setDefaultMinMile(event.target.value);
+  };
+  const onMaxMileHandler = event => {
+    setDefaultMaxMile(event.target.value);
+  };
+
   const submitHeandler = event => {
     event.preventDefault();
-    onSubmit(event.target);
+    onSubmit(defaultBrand, defaultPrice, defaultMinMile, defaultMaxMile);
+    setDefaultBrand('');
+    setDefaultPrice('');
+    setDefaultMinMile('');
+    setDefaultMaxMile('');
+  };
+
+  const resetHendler = event => {
+    event.preventDefault();
+    onSubmit(defaultBrand, defaultPrice, defaultMinMile, defaultMaxMile);
   };
 
   return (
@@ -44,7 +73,12 @@ const FilterForm = ({ onSubmit, carPriceList, min, max }) => {
       <FormEl onSubmit={submitHeandler}>
         <FormSelectLabel htmlFor="car-brand">
           Car brand
-          <FormSelect id="car-brand" name="brand" required>
+          <FormSelect
+            id="car-brand"
+            name="brand"
+            value={defaultBrand}
+            onChange={onBrandHandler}
+          >
             {carsBrands.map(brand => (
               <option key={brand} value={brand}>
                 {brand}
@@ -54,10 +88,15 @@ const FilterForm = ({ onSubmit, carPriceList, min, max }) => {
         </FormSelectLabel>
         <FormSelectLabel htmlFor="price-hour">
           Price/ 1 hour
-          <FormSelect id="price-hour" name="price" required>
+          <FormSelect
+            id="price-hour"
+            name="price"
+            value={defaultPrice}
+            onChange={onPriceHandler}
+          >
             {carPriceList.map(price => (
               <option key={price} value={price}>
-                {price}
+                To {price}$
               </option>
             ))}
           </FormSelect>
@@ -70,21 +109,24 @@ const FilterForm = ({ onSubmit, carPriceList, min, max }) => {
               id="mileage-km"
               name="min"
               type="number"
-              min={min}
-              max={max}
-              required
+              value={defaultMinMile}
+              onChange={onMinMileHandler}
             ></FormInput>
             <FormInput
               id="mileage-km"
               name="max"
               type="number"
-              min={min}
-              max={max}
-              required
+              value={defaultMaxMile}
+              onChange={onMaxMileHandler}
             ></FormInput>
           </ScaleWrap>
         </FormLabel>
         <FormBtn type="submit">Search</FormBtn>
+      </FormEl>
+      <FormEl onSubmit={resetHendler} style={{ paddingLeft: '3px' }}>
+        <FormBtn type="submit" style={{ backgroundColor: '#0b44cd' }}>
+          Reset
+        </FormBtn>
       </FormEl>
     </Wrapper>
   );
