@@ -60,6 +60,21 @@ export const ScaleWrap = styled.div`
 `;
 
 export const FormInput = styled.input`
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  &[type='number'],
+  &[type='number']:hover,
+  &[type='number']:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+  }
+
+  position: relative;
   width: 100%;
   padding: 14px 0 14px 24px;
   font-family: var(--manrope);
@@ -92,8 +107,7 @@ export const FormBtn = styled.button`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.43;
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--second-accent-color);
   }
 `;
