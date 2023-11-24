@@ -12,9 +12,12 @@ const CatalogPage = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [priceList, setPriceList] = useState([]);
-  const [minMil, setMinMil] = useState(null);
-  const [maxMil, setMaxMil] = useState(null);
   const [emptyList, setEmptyList] = useState(false);
+
+  const [filterBrand, setFilterBrand] = useState('');
+  const [filterPrice, setFilterPrice] = useState('');
+  const [filterMinMile, setFilterMinMile] = useState('');
+  const [filterMaxMile, setFilterMaxMile] = useState('');
 
   useEffect(() => {
     carsAPI().then(data => {
@@ -24,17 +27,39 @@ const CatalogPage = () => {
         .filter((all, index, array) => array.indexOf(all) === index);
       setPriceList(prices);
 
-      const mileage = data.map(all => all.mileage).sort((a, b) => a - b);
-      const min = mileage[0];
-      const max = mileage[mileage.length - 1];
+      const findBrand = data
+        .filter(all => {
+          if (filterBrand !== '') {
+            return all.make === filterBrand;
+          }
+          return all;
+        })
+        .filter(all => {
+          if (filterPrice !== '') {
+            return (
+              Number(all.rentalPrice.slice(1, all.rentalPrice.length)) <=
+              Number(filterPrice)
+            );
+          }
+          return all;
+        })
+        .filter(all => {
+          if (filterMinMile !== '') {
+            return all.mileage >= Number(filterMinMile);
+          }
+          return all;
+        })
+        .filter(all => {
+          if (filterMaxMile !== '') {
+            return all.mileage <= Number(filterMaxMile);
+          }
+          return all;
+        });
 
-      setMinMil(min);
-      setMaxMil(max);
-
-      setCars(data);
-      setEmptyList(false);
+      findBrand.length === 0 ? setEmptyList(true) : setEmptyList(false);
+      setCars(findBrand);
     });
-  }, []);
+  }, [filterBrand, filterPrice, filterMinMile, filterMaxMile]);
 
   const loadMoreBtn = () => {
     setPage(page + 1);
@@ -43,26 +68,16 @@ const CatalogPage = () => {
   const perPage = CARDS_PER_PAGE * page;
   const advertsPerPage = cars.slice(0, perPage);
 
-  const filterHandler = ({ brand, price, min, max }) => {
-    const findBrand = cars
-      .filter(all => all.make === brand.value)
-      .filter(all => {
-        const onlyPrice = all.rentalPrice.slice(1, all.rentalPrice.length);
-        return onlyPrice === price.value;
-      })
-      .filter(all => all.mileage >= min.value && all.mileage <= max.value);
-    setEmptyList(true);
-    setCars(findBrand);
+  const filterHandler = (brand, price, min, max) => {
+    setFilterBrand(brand);
+    setFilterPrice(price);
+    setFilterMinMile(min);
+    setFilterMaxMile(max);
   };
 
   return (
     <div>
-      <FilterForm
-        onSubmit={filterHandler}
-        carPriceList={priceList}
-        min={minMil}
-        max={maxMil}
-      />
+      <FilterForm onSubmit={filterHandler} carPriceList={priceList} />
       {emptyList && <EmptyFilterList />}
       {advertsPerPage.length > 0 && <CarsList cars={advertsPerPage} />}
       {advertsPerPage.length >= perPage ? (
