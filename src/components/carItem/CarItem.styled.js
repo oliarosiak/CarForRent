@@ -3,7 +3,16 @@ import styled from '@emotion/styled';
 export const CarBlock = styled.li`
   position: relative;
   flex-basis: calc((100% - 3 * 29px) / 4);
-  margin-bottom: 50px;
+
+  @media screen and (min-width: 320px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 890px) {
+    margin-bottom: 35px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 50px;
+  }
 `;
 
 export const FavoriteBtn = styled.button`
