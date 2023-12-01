@@ -49,8 +49,10 @@ export const TextWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 30px;
+  font-weight: 700;
   line-height: 1.5;
   margin-bottom: 20px;
+  color: var(--accent-color);
 `;
 
 export const Text = styled.p`
@@ -66,7 +68,7 @@ export const Text = styled.p`
 export const LinkToCatalog = styled(Link)`
   display: inline-block;
   padding: 5px 15px;
-  color: var(--main-accent-color);
+  color: var(--accent-color);
   font-family: var(--manrope);
   cursor: pointer;
   background-color: var(--filter-list-color);
