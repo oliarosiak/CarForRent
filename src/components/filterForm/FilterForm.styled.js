@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     margin-bottom: 15px;
   }
   @media screen and (min-width: 890px) {
-    flex-direction: row; 
+    flex-direction: row;
     margin-bottom: 25px;
   }
   @media screen and (min-width: 1440px) {
@@ -23,6 +23,17 @@ export const FormEl = styled.form`
   align-items: flex-end;
   justify-content: center;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 320px) {
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  @media screen and (min-width: 890px) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 export const FormSelectLabel = styled.label`
@@ -68,7 +79,7 @@ export const FormSelect = styled.select`
 export const FormLabel = styled.label`
   width: 320px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   color: var(--text-color);
   font-family: var(--manrope);
   font-weight: 500;
