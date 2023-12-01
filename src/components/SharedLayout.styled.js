@@ -6,9 +6,10 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   margin: 0 auto;
+  margin-top: 10px;
   margin-bottom: 25px;
   border-radius: 12px;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background: var(--bcg-gradient);
 
   @media screen and (min-width: 320px) {
     width: 300px;
@@ -28,16 +29,13 @@ export const Main = styled.main`
   margin: 0 auto;
 
   @media screen and (min-width: 320px) {
-    width: 300px;
-    padding: 10px 0;
+    width: 300px;    
   }
   @media screen and (min-width: 890px) {
-    width: 880px;
-    padding: 20px 0;
+    width: 880px;    
   }
   @media screen and (min-width: 1440px) {
-    width: 1184px;
-    padding: 30px 0;
+    width: 1184px;    
   }
 `;
 
@@ -58,10 +56,11 @@ export const Navigation = styled.nav`
   }
 
   & > a {
-    color: #ffffff;
+    color: var(--white-color);
     cursor: pointer;
     &.active {
-      color: #3470ff;
+      color: var(--accent-color);
+      text-decoration: underline;
     }
   }
 `;
