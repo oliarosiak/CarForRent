@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   margin: 0 auto;
   display: flex;
-  /* flex-direction: row;
-  justify-content: space-around; */
 
   @media screen and (min-width: 320px) {
     width: 300px;
@@ -26,8 +24,6 @@ export const CoverImg = styled.img`
 `;
 
 export const TextWrapper = styled.div`
-  /* width: 600px; */
-  /* padding: 100px 30px; */
   text-align: center;
   background: var(--bcg-gradient);
   border-radius: var(--radius-l);
