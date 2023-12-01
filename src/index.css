@@ -10,6 +10,7 @@
   --subtext-color: #12141780;
   --second-subtext-color: #363535;
   --filter-list-color: #12141733;
+  --accent-color: #e2e2e2;
 
   --main-accent-color: #3470ff;
   --second-accent-color: #0b44cd;
@@ -22,8 +23,10 @@
     rgba(18, 20, 23, 0.5) 2.5%,
     rgba(18, 20, 23, 0) 41.07%
   );
-  --bcg-gradient: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  --bcg-gradient: linear-gradient(to right, #457fca, #5691c8);
+
   --modal-overlay-color: #12141780;
+
   /*Fonts*/
   --manrope: 'Manrope';
   --montserrat: 'Montserrat';
@@ -47,7 +50,6 @@ html {
 }
 
 body {
-  min-width: 1440px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
