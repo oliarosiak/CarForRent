@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const CarImg = styled.img`
-  width: 461px;
-  height: 248px;
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-l);
   object-fit: cover;
   overflow: hidden;
@@ -56,6 +56,15 @@ export const RentalInfo = styled.p`
   &:not(:last-child) {
     margin-bottom: 8px;
   }
+  @media screen and (min-width: 320px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 890px) {
+    flex-direction: row;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `;
 
 export const RentalText = styled.span`
@@ -68,8 +77,16 @@ export const RentalText = styled.span`
   background-color: var(--modal-text-bcg-color);
   border-radius: var(--radius-xxl);
 
-  &:not(:last-child) {
-    margin-right: 8px;
+  @media screen and (min-width: 320px) {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+  @media screen and (min-width: 890px) {
+    &:not(:last-child) {
+      margin-right: 8px;
+      margin-bottom: 0;
+    }
   }
 
   & > span {
