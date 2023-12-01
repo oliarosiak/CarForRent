@@ -21,9 +21,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 20px;
+  color: var(--white-color);
+  font-weight: 500;
+  font-size: 18px;
   line-height: 1.5;
   margin-bottom: 25px;
 `;
@@ -37,7 +37,7 @@ export const ReturnText = styled.p`
 
 export const LinkTo = styled(Link)`
   display: inline-block;
-  color: var(--main-accent-color);
+  color: var(--accent-color);
   font-family: var(--manrope);
   text-decoration: underline;
   cursor: pointer;
