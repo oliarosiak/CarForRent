@@ -38,42 +38,45 @@ const PopUpCard = ({ characteristics }) => {
   return (
     <>
       <CarImg src={img} alt="car" />
-      <Wrapper>
-        <Header>
-          {make} <span>{model}</span>, {year}
-        </Header>
-        <Text>
-          {addressArr[1]} | {addressArr[2]} | Id: {id} | Year: {year} | Type:{' '}
-          {type}
-        </Text>
-        <Text>
-          Fuel Consumption: {fuelConsumption} | Engine Size: {engineSize}
-        </Text>
-        <Description>{description}</Description>
-      </Wrapper>
-      <Wrapper>
-        <Title>Accessories and functionalities:</Title>
-        <Text>{carAccessories}</Text>
-        <Text>{carFunctionalities}</Text>
-      </Wrapper>
-      <Wrapper>
-        <Title>Rental Conditions:</Title>
-        <RentalInfo>
-          <RentalText>
-            Minimum age : <span>{age[1]}</span>
-          </RentalText>
-          <RentalText>{rental[1]}</RentalText>
-        </RentalInfo>
-        <RentalInfo>
-          <RentalText>{rental[2]}</RentalText>
-          <RentalText>
-            Mileage: <span>{mileage.toLocaleString('en-IN')}</span>
-          </RentalText>
-          <RentalText>
-            Price: <span>{rentalPrice}</span>
-          </RentalText>
-        </RentalInfo>
-      </Wrapper>
+      <div>
+        <Wrapper>
+          <Header>
+            {make} <span>{model}</span>, {year}
+          </Header>
+          <Text>
+            {addressArr[1]} | {addressArr[2]} | Id: {id} | Year: {year} | Type:{' '}
+            {type}
+          </Text>
+          <Text>
+            Fuel Consumption: {fuelConsumption} | Engine Size: {engineSize}
+          </Text>
+          <Description>{description}</Description>
+        </Wrapper>
+        <Wrapper>
+          <Title>Accessories and functionalities:</Title>
+          <Text>{carAccessories}</Text>
+          <Text>{carFunctionalities}</Text>
+        </Wrapper>
+        <Wrapper>
+          <Title>Rental Conditions:</Title>
+          <RentalInfo>
+            <RentalText>
+              Minimum age : <span>{age[1]}</span>
+            </RentalText>
+            <RentalText>{rental[1]}</RentalText>
+          </RentalInfo>
+          <RentalInfo>
+            <RentalText>{rental[2]}</RentalText>
+            <RentalText>
+              Mileage: <span>{mileage.toLocaleString('en-IN')}</span>
+            </RentalText>
+            <RentalText>
+              Price: <span>{rentalPrice}</span>
+            </RentalText>
+          </RentalInfo>
+        </Wrapper>
+      </div>
+
       <CallBtn href="tel:+380730000000">Rental car</CallBtn>
     </>
   );

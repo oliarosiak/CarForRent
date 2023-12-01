@@ -12,6 +12,15 @@ export const CarImg = styled.img`
 export const Wrapper = styled.div`
   font-family: var(--manrope);
   margin-bottom: 24px;
+  &:nth-child(2) {
+    @media screen and (min-width: 320px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 890px) {
+      display: block;
+    }
+  }
 `;
 
 export const Header = styled.h2`
@@ -32,6 +41,13 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 1.43;
   color: var(--black-text-color);
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 890px) {
+    display: block;
+  }
 `;
 
 export const Title = styled.h3`
