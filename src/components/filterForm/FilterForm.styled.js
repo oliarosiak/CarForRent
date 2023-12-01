@@ -97,6 +97,13 @@ export const FormLabel = styled.label`
 export const ScaleWrap = styled.div`
   display: flex;
   margin-top: 8px;
+
+  @media screen and (min-width: 320px) {
+    margin-bottom: 5px;
+  }
+  @media screen and (min-width: 890px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const FormInput = styled.input`
