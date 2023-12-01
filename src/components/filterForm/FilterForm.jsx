@@ -124,7 +124,7 @@ const FilterForm = ({ onSubmit, carPriceList }) => {
         <FormBtn type="submit">Search</FormBtn>
       </FormEl>
       <FormEl onSubmit={resetHendler} style={{ paddingLeft: '3px' }}>
-        <FormBtn type="submit" style={{ backgroundColor: '#0b44cd' }}>
+        <FormBtn type="submit" style={{ textDecoration: 'underline' }}>
           Reset
         </FormBtn>
       </FormEl>

@@ -3,22 +3,45 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-bottom: 50px;
+
+  @media screen and (min-width: 320px) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  @media screen and (min-width: 890px) {
+    flex-direction: row; 
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: 1440px) {
+    align-items: flex-end;
+    margin-bottom: 50px;
+  }
 `;
 export const FormEl = styled.form`
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const FormSelectLabel = styled.label`
   width: 224px;
   display: flex;
   flex-direction: column;
-  margin-right: 18px;
   color: var(--text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
+
+  @media screen and (min-width: 320px) {
+    margin-right: 0;
+  }
+  @media screen and (min-width: 890px) {
+    margin-right: 18px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `;
 
 export const FormSelect = styled.select`
@@ -45,13 +68,19 @@ export const FormSelect = styled.select`
 export const FormLabel = styled.label`
   width: 320px;
   display: flex;
-  flex-direction: column;
-  margin-right: 18px;
+  flex-direction: column; 
   color: var(--text-color);
   font-family: var(--manrope);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
+
+  @media screen and (min-width: 320px) {
+    margin-right: 0;
+  }
+  @media screen and (min-width: 890px) {
+    margin-right: 18px;
+  }
 `;
 
 export const ScaleWrap = styled.div`
