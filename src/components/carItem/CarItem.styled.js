@@ -26,6 +26,7 @@ export const FavoriteBtn = styled.button`
 export const FavoriteBtnImg = styled.img`
   width: 18px;
   height: 18px;
+  cursor: pointer;
 `;
 
 export const CarImg = styled.img`
